@@ -139,83 +139,8 @@ img.add_border {
           </div>
           
         </header>
-    <div id="tipue_search_content">UK flag << <a href='UK flag.html'>Previous</a> <a href='長200寬一百的紅色長方形.html'>Next</a> >> 長200寬一百的紅色長方形<br /><h1>ROC flag 90度反轉</h1>
-<p>在這份作業中，我將ROC flag的程式碼複製進去，在將畫布的長寬數值對調便能達到轉90度的效果，在將青天的x、y數值做無數次的微調，最後試出了將x值加兩百便能達到貼其最右邊的效果，之後重複此步驟，將十二道白光芒、白日白心、白日藍圈的x值都加兩百，便能達到作業需求。</p>
-<!--導入 brython.js 程式庫-->
-<script src="https://mde.tw/wcm2022_guide/cmsimde/static/brython.js"></script>
-<!--導入 brython_stdlib.js 標準程式庫-->
-<script src="https://mde.tw/wcm2022_guide/cmsimde/static/brython_stdlib.js"></script>
-<!--啟動 brython-->
-<script>
-window.onload=function(){
-  brython();
-  }
-</script>
-<!--執行所需要的 Brython 程式-->
-<script type="text/python3">
-# 畫中華民國國旗
-# 導入 doc
-from browser import document as doc
-# 以下將利用 html 產生所需的繪圖畫布
-from browser import html
-# 利用 math 函式庫執行三角函數運算
-import math
-canvas = html.CANVAS(width = 400, height = 600)
-#canvas.style = {"width": "100%"}
-canvas.id = "taiwan_flag"
-# 將圖畫至 id 為 brython_div 的 cnavas 標註
-brython_div = doc["brython_div"]
-brython_div <= canvas
-# 準備繪圖畫布
-canvas = doc["taiwan_flag"]
-ctx = canvas.getContext("2d")
-# 進行座標轉換, x 軸不變, y 軸反向且移動 canvas.height 單位光點
-# ctx.setTransform(1, 0, 0, -1, 0, canvas.height)
-# 以下採用 canvas 原始座標繪圖
-flag_w = canvas.width
-flag_h = canvas.height
-circle_x = flag_w/4
-circle_y = flag_h/4
-# 先畫滿地紅
-ctx.fillStyle='rgb(255, 0, 0)'
-ctx.fillRect(0,0,flag_w,flag_h)
-# 再畫青天
-ctx.fillStyle='rgb(0, 0, 150)'
-ctx.fillRect(200,0,flag_w/2,flag_h/2)
-# 畫十二道光芒白日
-ctx.beginPath()
-star_radius = flag_w/8
-angle = 0
-for i in range(24):
-    angle += 5*math.pi*2/12
-    toX = circle_x+200 + math.cos(angle)*star_radius
-    toY = circle_y + math.sin(angle)*star_radius
-    # 只有 i 為 0 時移動到 toX, toY, 其餘都進行 lineTo
-    if (i):
-        ctx.lineTo(toX, toY)
-    else:
-        ctx.moveTo(toX, toY)
-ctx.closePath()
-# 將填色設為白色
-ctx.fillStyle = '#fff'
-ctx.fill()
-# 白日:藍圈
-ctx.beginPath()
-ctx.arc(circle_x+200, circle_y, flag_w*17/240, 0, math.pi*2, True)
-ctx.closePath()
-# 填色設為藍色
-ctx.fillStyle = 'rgb(0, 0, 149)'
-ctx.fill()
-# 白日:白心
-ctx.beginPath()
-ctx.arc(circle_x+200, circle_y, flag_w/16, 0, math.pi*2, True)
-ctx.closePath()
-# 填色設為白色
-ctx.fillStyle = '#fff'
-ctx.fill()
-</script>
-<div id="brython_div"></div>
-<br />UK flag << <a href='UK flag.html'>Previous</a> <a href='長200寬一百的紅色長方形.html'>Next</a> >> 長200寬一百的紅色長方形</div>
+    <div id="tipue_search_content">本課程心得 << <a href='本課程心得.html'>Previous</a> <br /><h1>設置token</h1>
+<p>先到github裡，點Developer settings，再點Personal access tokens，接著再點generate new token，然後就設名字，我設的是0624，再點選repo，接著在點選generate token，然後會跑出一段亂碼，複製那串亂碼，打開資料夾wcm2022，找到.git，若找不到就在檢視裡勾選顯示隱藏，接著點開git.找到config，再點開config，接著用記事本開啟，接著把那串亂碼貼在https://的後面，在加上一個@，接著到cmd裡，打git add .，在打git config --global user.email "學校的gmail帳號"在打Git commit -m “0624”，最後再打git push，結束。</p><br />本課程心得 << <a href='本課程心得.html'>Previous</a> </div>
         
     <!-- footer -->
       <div class="container">
