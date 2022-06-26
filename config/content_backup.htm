@@ -208,3 +208,44 @@ ctx.fillStyle = '#fff'
 ctx.fill()
 </script>
 <div id="brython_div"></div>
+<h2>長200寬一百的紅色長方形</h2>
+<p>這份作業是我們開始遠距離上課的第一份作業，作業內容是要我們做一個常200寬100的紅色長方形，我是先將導入啟動Bryson的程式碼複製到blogger的html裡，在將RUN裡的ROC flag前半段這至畫布的程式碼複製貼上，接著將長寬改成長200寬100，就完成此作業了，這份作業讓我學到如何在blogger裡繪製圖形，以及如何在blogger裡導入且啟動bryson。</p>
+<p> </p>
+<!--導入 brython.js 程式庫-->
+<script src="https://mde.tw/wcm2022_guide/cmsimde/static/brython.js"></script>
+<!--導入 brython_stdlib.js 標準程式庫-->
+<script src="https://mde.tw/wcm2022_guide/cmsimde/static/brython_stdlib.js"></script>
+<!--啟動 brython-->
+<script>
+  window.onload=function(){
+  brython();
+  }
+</script>
+<!--執行所需要的 Brython 程式-->
+<script type="text/python3">
+from browser import document as doc
+# 以下將利用 html 產生所需的繪圖畫布
+from browser import html
+# 利用 math 函式庫執行三角函數運算
+import math
+canvas = html.CANVAS(width = 600, height = 400)
+#canvas.style = {"width": "100%"}
+canvas.id = "taiwan_flag"
+# 將圖畫至 id 為 brython_div 的 cnavas 標註
+brython_div = doc["brython_div"]
+brython_div <= canvas
+# 準備繪圖畫布
+canvas = doc["taiwan_flag"]
+ctx = canvas.getContext("2d")
+# 進行座標轉換, x 軸不變, y 軸反向且移動 canvas.height 單位光點
+# ctx.setTransform(1, 0, 0, -1, 0, canvas.height)
+# 以下採用 canvas 原始座標繪圖
+flag_w = canvas.width
+flag_h = canvas.height
+circle_x = flag_w/4
+circle_y = flag_h/4
+# 先畫滿地紅
+ctx.fillStyle='rgb(255, 0, 0)'
+ctx.fillRect(0,0,flag_w,flag_h)
+</script>
+<div id="brython_div"></div>
